@@ -52,7 +52,7 @@ model.compile(loss=keras.losses.categorical_crossentropy, optimizer=keras.optimi
 hist = model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs, verbose=1, validation_data=(x_test, y_test))
 print("The model has successfully trained")
 
-# Evaluate the model on the test data
+# evaluate the model on the test data
 score = model.evaluate(x_test, y_test, verbose=0)
 print('Test loss:', score[0])
 print('Test accuracy:', score[1])
