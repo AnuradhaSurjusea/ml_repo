@@ -8,10 +8,11 @@ import numpy as np
 # load model
 model = load_model('mnist.h5')
 
-"""we created predict_digit() that takes the image as input and
-   uses the trained model to predict the digit.
-"""
+
 def predict_digit(img):
+    """we created predict_digit() that takes the image as input and
+       uses the trained model to predict the digit.
+    """
     # resize image to 28x28 pixels
     img = img.resize((28, 28))
     # convert rgb to grayscale
@@ -19,7 +20,7 @@ def predict_digit(img):
     # convert to array
     img = np.array(img)
     # reshaping to support our model input and normalizing
-    img = img.reshape(1,28,28,1)
+    img = img.reshape(1, 28, 28, 1)
     # prepare pixel data
     img = img / 255.0
     # predicting the class
@@ -27,10 +28,10 @@ def predict_digit(img):
     return np.argmax(res), max(res)
 
 
-""" the class is used to to create a GUI along with Canvas widget,labels,buttons,provide.
-    It is used to draw various digits on the application.
-"""
 class App(tk.Tk):
+    """ the class is used to to create a GUI along with Canvas widget,labels,buttons,provide.
+        It is used to draw various digits on the application.
+    """
     def __init__(self):
         tk.Tk.__init__(self)
         self.x = self.y = 0
@@ -69,6 +70,7 @@ class App(tk.Tk):
         self.y = event.y
         r = 8
         self.canvas.create_oval(self.x-r, self.y-r, self.x + r, self.y + r, fill='black')
+
 
 app = App()
 mainloop()
